@@ -18,7 +18,7 @@ router.get(
 router.get("/logout", function (req, res, next) {
   req.session.destroy(function (err) {
     if (err) next(err);
-    res.redirect("/user/no-permission");
+    res.redirect("/");
   });
 });
 
