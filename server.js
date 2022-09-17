@@ -15,18 +15,18 @@ app.engine(
 );
 app.set("view engine", ".hbs");
 
-// standard middleware
-app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, "/public")));
-
 // init session mechanism
 app.use(session({ secret: "anything" }));
 
 // init passport
 app.use(passport.initialize());
 app.use(passport.session());
+
+// standard middleware
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, "/public")));
 
 app.get("/", (req, res) => {
   res.render("index");
